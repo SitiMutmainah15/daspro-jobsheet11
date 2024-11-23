@@ -1,11 +1,14 @@
 public class PengunjungCafe21 {
     public static void main(String[] args) {
-       daftarPengunjung("Ali", "Budi", "Citra");
+        tampilkanData("Ali", "Budi", "Citra", 1, 2, 3);
     }
-    public static void daftarPengunjung(String... namaPengunjung) {
-        System.out.println("Daftar nama pengunjung:");
-        for (int i = 0; i < namaPengunjung.length; i++) {
-            System.out.println("- " + namaPengunjung[i]);
+
+    public static void tampilkanData(String... namaPengunjung, int... nomorMeja) { 
+        for (String nama : namaPengunjung) {
+            System.out.println("Nama Pengunjung: " + nama);
+        }
+        for (int meja : nomorMeja) {
+            System.out.println("Nomor Meja: " + meja);
         }
     }
 }
