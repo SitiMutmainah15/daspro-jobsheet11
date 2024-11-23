@@ -30,30 +30,31 @@ public class Kafe21 {
 
             if (pilihanMenu == 0) break;
 
-            System.out.println("Masukkan jumlah item: ");
+            System.out.println("Masukkan jumlah pembelian: ");
             int banyakItem = sc.nextInt();
 
-            totalHarga += hitungTotalHarga(pilihanMenu, banyakItem);
+            totalHarga += hitungTotalHarga21(pilihanMenu, banyakItem);
         }
 
-        totalHarga = applyKodePromo(totalHarga, kodePromo);
-        System.out.println("Total keseluruhan pesanan Anda: Rp" + totalHarga);
+        totalHarga = KodePromo(totalHarga, kodePromo);
+        System.out.println("Total pesanan Anda: Rp" + totalHarga);
     }
 
-    public static int hitungTotalHarga(int pilihanMenu, int banyakItem) {
+    public static int hitungTotalHarga21(int pilihanMenu, int banyakItem) {
         int[] hargaItems = {15000, 20000, 22000, 12000, 10000, 18000};
-        return hargaItems[pilihanMenu - 1] * banyakItem;
+        int totalHarga = hargaItems[pilihanMenu - 1] * banyakItem;
+        return totalHarga; 
     }
 
-    public static int applyKodePromo(int totalHarga, String kodePromo) {
+    public static int KodePromo(int totalHarga, String kodePromo) {
         if (kodePromo.equals("DISKON50")) {
-            System.out.println("Kode promo valid: Diskon 50% diterapkan!");
-            return totalHarga / 2;
+            System.out.println("Anda mendapat diskon 50%");
+            totalHarga *= 0.5;
         } else if (kodePromo.equals("DISKON30")) {
-            System.out.println("Kode promo valid: Diskon 30% diterapkan!");
-            return (int) (totalHarga * 0.7);
+            System.out.println("Anda mendapat diskon 30%");
+            totalHarga *= 0.7;
         } else {
-            System.out.println("Kode promo invalid: Tidak ada diskon.");
+            System.out.println("Kode promo invalid");
         }
         return totalHarga;
     }
